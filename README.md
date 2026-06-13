@@ -11,7 +11,7 @@ A location-based dating app where users place pixels on a real map and connect t
 5. **Click to connect** — Send a click (like) to someone's pixel (10 per day)
 6. **Match** — If the other person accepts, both get each other's email
 
-## Tech stack
+<!-- ## Tech stack
 
 | Layer | Tech |
 |-------|------|
@@ -58,7 +58,7 @@ pixel_dating/
 └── .env.example
 ```
 
-## Setup
+<!-- ## Setup
 
 ### Prerequisites
 
@@ -171,4 +171,4 @@ npm test          # Runs vitest (26 tests)
 
 ## Supported countries
 
-Spain (ES), Switzerland (CH), Argentina (AR), Mexico (MX)
+Spain (ES), Switzerland (CH), Argentina (AR), Mexico (MX) --> -->
