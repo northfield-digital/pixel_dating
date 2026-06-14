@@ -10,6 +10,7 @@ import {
   type Pixel, type PixelPreview, type MyPixel, type Lang,
 } from '../api';
 import Nav from '../components/Nav';
+import HowItWorksOverlay from '../components/HowItWorksOverlay';
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -116,6 +117,7 @@ export default function MapPage() {
   const bboxDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [occupancy, setOccupancy] = useState<{ name: string; pct: number; count: number } | null>(null);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
 
   const [likeModal, setLikeModal] = useState<{
     pixelId: number;
@@ -508,7 +510,7 @@ export default function MapPage() {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      <Nav authenticated={isAuthenticated} />
+      <Nav authenticated={isAuthenticated} onHowItWorks={() => setShowHowItWorks(true)} />
 
       <style>{`
         @keyframes pixel-pulse {
@@ -699,6 +701,12 @@ export default function MapPage() {
         >
           {t('map.placeMyPixel')}
         </button>
+
+        <HowItWorksOverlay
+          skip={isAuthenticated}
+          open={showHowItWorks}
+          onClose={() => setShowHowItWorks(false)}
+        />
 
         {/* Like modal */}
         {likeModal && (

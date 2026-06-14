@@ -23,6 +23,7 @@ const pt = {
     logout: 'Sair',
     language: 'Idioma',
     pendingLikes: '{{count}} clique(s) pendente(s)',
+    howItWorks: 'Como funciona',
   },
   lang: { en: 'Inglês', es: 'Espanhol', pt: 'Português' },
   countries: { ES: 'Espanha', CH: 'Suíça', AR: 'Argentina', MX: 'México' },
@@ -230,6 +231,20 @@ const pt = {
     title: 'Política de privacidade',
     lastUpdated: 'Última atualização:',
     lastUpdatedDate: '21 de abril de 2026',
+  },
+  howItWorks: {
+    title: 'Como funciona',
+    subtitle: 'Encontra a tua pessoa. Coloca um pixel. Conecta.',
+    step1Title: 'Regista-te grátis',
+    step1Body: 'Cria o teu perfil em segundos. Sem pagamento necessário para registar.',
+    step2Title: 'Coloca o teu pixel',
+    step2Body: 'Marca o teu lugar no mapa por €1,50 · 30 dias. Renova quando quiseres.',
+    step3Title: 'Envia 5 gostos/dia',
+    step3Body: 'Clica em pixels próximos anonimamente. Interesse mútuo → apresentação por email.',
+    step4Title: 'Cria eventos',
+    step4Body: 'Coloca um pixel de evento para organizar um encontro na tua cidade.',
+    ctaRegister: 'Começar grátis →',
+    ctaSkip: 'Só explorar o mapa',
   },
 };
 

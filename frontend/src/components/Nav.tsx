@@ -7,9 +7,10 @@ import { useState } from 'react';
 
 interface NavProps {
   authenticated?: boolean;
+  onHowItWorks?: () => void;
 }
 
-export default function Nav({ authenticated = false }: NavProps) {
+export default function Nav({ authenticated = false, onHowItWorks }: NavProps) {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -65,12 +66,40 @@ export default function Nav({ authenticated = false }: NavProps) {
       backdropFilter: 'blur(12px)',
       position: 'relative', zIndex: 50,
     }}>
-      <Link to="/" style={{
-        fontFamily: 'var(--mono)', fontSize: '13px', color: 'var(--accent)',
-        fontWeight: 700, letterSpacing: '3px', textDecoration: 'none',
-      }}>
-        PIXEL DATING
-      </Link>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <Link to="/" style={{
+          fontFamily: 'var(--mono)', fontSize: '13px', color: 'var(--accent)',
+          fontWeight: 700, letterSpacing: '3px', textDecoration: 'none',
+        }}>
+          PIXEL DATING
+        </Link>
+        {onHowItWorks && (
+          <button
+            onClick={onHowItWorks}
+            style={{
+              background: 'transparent',
+              border: '1px solid var(--border)',
+              color: 'var(--text)',
+              fontSize: '11px',
+              padding: '3px 10px',
+              borderRadius: '10px',
+              cursor: 'pointer',
+              letterSpacing: '0.3px',
+              transition: 'border-color 0.15s, color 0.15s',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)';
+              (e.currentTarget as HTMLElement).style.color = 'var(--accent)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)';
+              (e.currentTarget as HTMLElement).style.color = 'var(--text)';
+            }}
+          >
+            {t('nav.howItWorks')}
+          </button>
+        )}
+      </div>
       <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <Link to="/" style={linkStyle('/')}>{t('nav.map')}</Link>
         {authenticated && (

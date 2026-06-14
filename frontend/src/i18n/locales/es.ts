@@ -23,6 +23,7 @@ const es = {
     logout: 'Cerrar sesión',
     language: 'Idioma',
     pendingLikes: '{{count}} clic(s) pendiente(s)',
+    howItWorks: 'Cómo funciona',
   },
   lang: { en: 'Inglés', es: 'Español', pt: 'Portugués' },
   countries: { ES: 'España', CH: 'Suiza', AR: 'Argentina', MX: 'México' },
@@ -230,6 +231,20 @@ const es = {
     title: 'Política de Privacidad',
     lastUpdated: 'Última actualización:',
     lastUpdatedDate: '21 de abril de 2026',
+  },
+  howItWorks: {
+    title: 'Cómo funciona',
+    subtitle: 'Encuentra a tu persona. Coloca un píxel. Conecta.',
+    step1Title: 'Regístrate gratis',
+    step1Body: 'Crea tu perfil en segundos. Sin pago para registrarse.',
+    step2Title: 'Coloca tu píxel',
+    step2Body: 'Marca tu lugar en el mapa por €1,50 · 30 días. Renueva cuando quieras.',
+    step3Title: 'Envía 5 likes/día',
+    step3Body: 'Haz clic en píxeles cercanos de forma anónima. Interés mutuo → presentación por email.',
+    step4Title: 'Crea eventos',
+    step4Body: 'Crea un píxel de evento para organizar una reunión en tu ciudad.',
+    ctaRegister: 'Empezar gratis →',
+    ctaSkip: 'Solo explorar el mapa',
   },
 };
 

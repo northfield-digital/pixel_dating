@@ -24,6 +24,7 @@ const en = {
     logout: 'Log out',
     language: 'Language',
     pendingLikes: '{{count}} pending click(s)',
+    howItWorks: 'How it works',
   },
   lang: { en: 'English', es: 'Spanish', pt: 'Portuguese' },
   countries: { ES: 'Spain', CH: 'Switzerland', AR: 'Argentina', MX: 'Mexico' },
@@ -231,6 +232,20 @@ const en = {
     title: 'Privacy policy',
     lastUpdated: 'Last update:',
     lastUpdatedDate: 'April 21, 2026',
+  },
+  howItWorks: {
+    title: 'How it works',
+    subtitle: 'Find your person. Place a pixel. Make a connection.',
+    step1Title: 'Register for free',
+    step1Body: 'Create your profile in seconds. No payment required to sign up.',
+    step2Title: 'Place your pixel',
+    step2Body: 'Mark your spot on the map for €1.50 · 30 days. Renew anytime.',
+    step3Title: 'Send 5 likes/day',
+    step3Body: 'Click pixels near you anonymously. Mutual interest → email intro.',
+    step4Title: 'Create events',
+    step4Body: 'Drop an event pixel to organize a gathering in your city. Others can join.',
+    ctaRegister: 'Get started for free →',
+    ctaSkip: 'Just explore the map',
   },
 };
 
