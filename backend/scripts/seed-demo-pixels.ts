@@ -11,8 +11,30 @@
  * DELETE /api/dev/wipe-bots endpoint can clean them up.
  */
 import 'dotenv/config';
-import { pool } from '../src/db/index.js';
+import pg from 'pg';
+import { resolve4 } from 'dns/promises';
 import { computeEmailHash } from '../src/lib/emailHash.js';
+
+// Build a pool that connects over IPv4 even when the hostname resolves to IPv6 first.
+async function makeIPv4Pool() {
+  const url = new URL(process.env.DATABASE_URL!);
+  let host = url.hostname;
+  try {
+    const addrs = await resolve4(host);
+    host = addrs[0]; // use first IPv4 address
+  } catch {
+    // fall back to original hostname
+  }
+  return new pg.Pool({
+    host,
+    port: parseInt(url.port || '5432', 10),
+    database: url.pathname.slice(1),
+    user: decodeURIComponent(url.username),
+    password: decodeURIComponent(url.password),
+    ssl: { rejectUnauthorized: false },
+    max: 10,
+  });
+}
 
 const arg = (flag: string) => process.argv.find(a => a.startsWith(`--${flag}=`))?.split('=')[1];
 const TARGET = parseInt(arg('count') ?? '2300', 10);
@@ -102,6 +124,7 @@ async function main() {
   if (!process.env.EMAIL_ENCRYPTION_KEY) throw new Error('EMAIL_ENCRYPTION_KEY not set');
   if (!process.env.EMAIL_HASH_KEY)        throw new Error('EMAIL_HASH_KEY not set');
 
+  const pool = await makeIPv4Pool();
   const client = await pool.connect();
   try {
     if (WIPE) {
