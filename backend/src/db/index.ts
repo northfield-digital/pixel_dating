@@ -14,11 +14,10 @@ const statementTimeoutMs = parseInt(process.env.DB_STATEMENT_TIMEOUT_MS || '1500
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: isProduction ? { rejectUnauthorized: true } : { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
   max: poolMax,
   idleTimeoutMillis: idleTimeoutMs,
   connectionTimeoutMillis: connectTimeoutMs,
-  // statement_timeout protects against runaway queries holding a connection
   statement_timeout: statementTimeoutMs,
 });
 
