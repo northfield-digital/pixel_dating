@@ -45,7 +45,8 @@ export default function HowItWorksOverlay({
         position: 'fixed', inset: 0, zIndex: 200,
         background: 'rgba(5,6,8,0.68)',
         backdropFilter: 'blur(5px)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+        overflowY: 'auto',
         padding: '16px',
         animation: 'hiw-backdrop 0.3s ease both',
       }}
@@ -60,9 +61,11 @@ export default function HowItWorksOverlay({
           border: '1px solid rgba(255,255,255,0.07)',
           borderTop: '2px solid #E06878',
           borderRadius: '16px',
-          padding: '40px 40px 32px',
+          padding: 'clamp(20px, 5vw, 40px)',
+          paddingTop: 'clamp(32px, 5vw, 40px)',
           maxWidth: '780px',
           width: '100%',
+          margin: 'auto',
           animation: 'hiw-panel 0.5s cubic-bezier(0.22,1,0.36,1) both',
         }}
       >
@@ -70,53 +73,54 @@ export default function HowItWorksOverlay({
           onClick={dismiss}
           aria-label={t('common.close')}
           style={{
-            position: 'absolute', top: '16px', right: '20px',
-            background: 'transparent', border: 'none',
-            color: 'rgba(255,255,255,0.3)',
-            fontSize: '22px', lineHeight: 1, cursor: 'pointer',
-            padding: '4px 6px', borderRadius: '4px',
+            position: 'absolute', top: '14px', right: '16px',
+            background: 'rgba(255,255,255,0.08)', border: 'none',
+            color: 'rgba(255,255,255,0.6)',
+            fontSize: '18px', lineHeight: 1, cursor: 'pointer',
+            width: '32px', height: '32px', borderRadius: '50%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.3)'; }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.15)'; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.08)'; }}
         >
           ×
         </button>
 
-        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(16px, 3vw, 28px)' }}>
           <p style={{
             fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase',
-            color: '#E06878', fontFamily: 'var(--mono)', marginBottom: '12px',
+            color: '#E06878', fontFamily: 'var(--mono)', marginBottom: '10px',
             animation: 'hiw-item 0.4s 0.05s both',
           }}>
             pixel.dating
           </p>
           <h2 style={{
-            fontSize: '28px', fontWeight: 700, color: '#fff',
+            fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 700, color: '#fff',
             letterSpacing: '-0.5px', marginBottom: '8px',
             animation: 'hiw-item 0.4s 0.15s both',
           }}>
             {t('howItWorks.title')}
           </h2>
           <p style={{
-            color: 'rgba(255,255,255,0.4)', fontSize: '14px', lineHeight: 1.5,
+            color: 'rgba(255,255,255,0.4)', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: 1.5,
             animation: 'hiw-item 0.4s 0.2s both',
           }}>
             {t('howItWorks.subtitle')}
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '28px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: 'clamp(16px, 3vw, 28px)' }}>
           {steps.map((step, i) => (
             <div
               key={i}
               style={{
-                flex: '1 1 155px',
+                flex: '1 1 140px',
                 background: `${step.color}08`,
                 border: `1px solid ${step.color}25`,
                 borderRadius: '12px',
-                padding: '20px 14px',
+                padding: 'clamp(14px, 3vw, 20px) clamp(10px, 2vw, 14px)',
                 display: 'flex', flexDirection: 'column', alignItems: 'center',
-                textAlign: 'center', gap: '10px',
+                textAlign: 'center', gap: '8px',
                 animation: `hiw-item 0.4s ${0.28 + i * 0.1}s both`,
                 transition: 'border-color 0.2s, box-shadow 0.2s',
               }}
@@ -133,11 +137,11 @@ export default function HowItWorksOverlay({
             >
               <div style={{ position: 'relative' }}>
                 <div style={{
-                  width: '52px', height: '52px', borderRadius: '50%',
+                  width: 'clamp(40px, 8vw, 52px)', height: 'clamp(40px, 8vw, 52px)', borderRadius: '50%',
                   background: `${step.color}18`,
                   border: `1.5px solid ${step.color}44`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '22px',
+                  fontSize: 'clamp(18px, 4vw, 22px)',
                 }}>
                   {step.emoji}
                 </div>
@@ -152,10 +156,10 @@ export default function HowItWorksOverlay({
                   {step.num}
                 </span>
               </div>
-              <p style={{ color: '#fff', fontWeight: 700, fontSize: '13px', lineHeight: 1.35 }}>
+              <p style={{ color: '#fff', fontWeight: 700, fontSize: 'clamp(12px, 2.5vw, 13px)', lineHeight: 1.35 }}>
                 {step.title}
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.42)', fontSize: '12px', lineHeight: 1.55 }}>
+              <p style={{ color: 'rgba(255,255,255,0.42)', fontSize: 'clamp(11px, 2vw, 12px)', lineHeight: 1.5 }}>
                 {step.body}
               </p>
             </div>

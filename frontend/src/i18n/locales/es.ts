@@ -234,11 +234,11 @@ const es = {
   },
   howItWorks: {
     title: 'Cómo funciona',
-    subtitle: 'Encuentra a tu persona. Coloca un píxel. Conecta.',
+    subtitle: 'Coloca un píxel. Encuentra a tu persona. Conecta.',
     step1Title: 'Regístrate gratis',
     step1Body: 'Crea tu perfil en segundos. Sin pago para registrarse.',
     step2Title: 'Coloca tu píxel',
-    step2Body: 'Marca tu lugar en el mapa por €1,50 · 30 días. Renueva cuando quieras.',
+    step2Body: 'Marca tu lugar en el mapa por €1,50. Renueva cuando quieras.',
     step3Title: 'Envía 5 likes/día',
     step3Body: 'Haz clic en píxeles cercanos de forma anónima. Interés mutuo → presentación por email.',
     step4Title: 'Crea eventos',

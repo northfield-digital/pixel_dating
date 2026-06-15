@@ -235,11 +235,11 @@ const en = {
   },
   howItWorks: {
     title: 'How it works',
-    subtitle: 'Find your person. Place a pixel. Make a connection.',
+    subtitle: 'Place a pixel. Find your person. Make a connection.',
     step1Title: 'Register for free',
     step1Body: 'Create your profile in seconds. No payment required to sign up.',
     step2Title: 'Place your pixel',
-    step2Body: 'Mark your spot on the map for €1.50 · 30 days. Renew anytime.',
+    step2Body: 'Mark your spot on the map for €1.50. Renew anytime.',
     step3Title: 'Send 5 likes/day',
     step3Body: 'Click pixels near you anonymously. Mutual interest → email intro.',
     step4Title: 'Create events',
